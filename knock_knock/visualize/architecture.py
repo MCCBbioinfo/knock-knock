@@ -602,7 +602,7 @@ class ReadDiagram():
 
         by_reference_name = defaultdict(list)
         print("TEST_architecture_reference: ", reference_order)
-        for al in sorted(alignments, key = lambda al: print(al)):
+        for al in sorted(alignments, key = lambda al: print(al.reference_name)):
             print(*"TEST_x")
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
             print("TEST_architecture_reference: ", al.reference_name)
