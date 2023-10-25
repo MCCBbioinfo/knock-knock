@@ -601,6 +601,8 @@ class ReadDiagram():
         reference_order = [ref_name for ref_name in reference_order if ref_name in references_seen]
 
         by_reference_name = defaultdict(list)
+        print("TEST_architecture_reference: ", reference_order)
+        print("TEST_architecture_reference: ", al.reference_name)
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
             by_reference_name[al.reference_name].append(al)
 
