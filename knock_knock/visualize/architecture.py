@@ -614,7 +614,7 @@ class ReadDiagram():
         # to be added
         
         for al in alignments:
-            print("TEST_X: ".reference_name)
+            print("TEST_X: ", al.reference_name)
         print("TEST_X_reference_ordr:", reference_order)
         print("TEST_x")
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
