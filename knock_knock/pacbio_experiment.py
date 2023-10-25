@@ -30,6 +30,7 @@ class PacbioExperiment(Experiment):
 
         self.read_types = {'CCS'}
         self.default_read_type = 'CCS'
+        self.uncommon_read_type = 'NA' # added by mimicking illumina_experiment
 
         self.outcome_fn_keys = ['outcome_list']
 
@@ -109,7 +110,6 @@ class PacbioExperiment(Experiment):
 
     def align(self):
         for read_type in self.read_types:
-            print("TEST: ", read_type)
             self.generate_alignments_with_blast(read_type=read_type)
             self.generate_supplemental_alignments_with_minimap2(read_type=read_type)
             self.combine_alignments(read_type=read_type)
