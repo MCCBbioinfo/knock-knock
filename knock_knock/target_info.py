@@ -1049,6 +1049,7 @@ class TargetInfo():
                 seqs[source] = HA_seq
                 
             if seqs['target'] != seqs['donor']:
+                print("TEST: ", seqs["target"], seqs["donor"])
                 logging.warning(f'{name} not identical sequence on target and donor')
 
             paired_HAs[name] = HAs[name]
