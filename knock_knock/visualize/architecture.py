@@ -596,7 +596,7 @@ class ReadDiagram():
         print("TEST_architecture: ", ti)
         
         reference_order.extend(ti.all_supplemental_reference_names)
-        reference_order.extend(["hg38_chr15"]) # added otherwisce by_reference_name step complains
+        # reference_order.extend(["hg38_chr15", "hg38_chr8"]) # added otherwisce by_reference_name step complains
 
         references_seen = set(al.reference_name for al in alignments)
         print("TEST_reference_seen: ", references_seen)
@@ -604,10 +604,13 @@ class ReadDiagram():
 
         by_reference_name = defaultdict(list)
         print("TEST_architecture_reference: ", reference_order)
+        
+        print("TEST_len_before: ", len(alignments))
+        alignments = copy.deepcopy([al for al in alignments if al.reference_name in reference_order])
+        print("TEST_len_after: ", len(alignments))
         for al in alignments:
             print("TEST_X: ", al.reference_name)
         print("TEST_X_reference_ordr:", reference_order)
-            
         print("TEST_x")
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
             print("TEST_architecture_reference: ", al.reference_name)
