@@ -602,8 +602,8 @@ class ReadDiagram():
 
         by_reference_name = defaultdict(list)
         print("TEST_architecture_reference: ", reference_order)
-        print("TEST_architecture_reference: ", al.reference_name)
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
+            print("TEST_architecture_reference: ", al.reference_name)
             by_reference_name[al.reference_name].append(al)
 
         # Prevent further population of defaultdict.
