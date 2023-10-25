@@ -596,7 +596,7 @@ class ReadDiagram():
         print("TEST_architecture: ", ti)
         
         reference_order.extend(ti.all_supplemental_reference_names)
-        # reference_order.extend(al.reference_name for al in alignments if al.reference_name not in )
+        reference_order.extend(["hg38_chr15"]) # added otherwisce by_reference_name step complains
 
         references_seen = set(al.reference_name for al in alignments)
         print("TEST_reference_seen: ", references_seen)
