@@ -31,7 +31,7 @@ class PacbioExperiment(Experiment):
         self.read_types = {'CCS'}
         self.default_read_type = 'CCS'
         self.uncommon_read_type = 'CCS' # added by mimicking illumina_experiment
-        self.preprocessed_read_type = 'NA' # added by mimicking illumina_experiment
+        self.preprocessed_read_type = 'CCS' # added by mimicking illumina_experiment
 
         self.outcome_fn_keys = ['outcome_list']
 
