@@ -605,11 +605,16 @@ class ReadDiagram():
         by_reference_name = defaultdict(list)
         print("TEST_architecture_reference: ", reference_order)
         
+        # method1: filter alignment
         print("TEST_len_before: ", len(alignments))
         alignments = copy.deepcopy([al for al in alignments if al.reference_name in reference_order])
         print("TEST_len_after: ", len(alignments))
+        
+        # method2: extend reference_order
+        # to be added
+        
         for al in alignments:
-            print("TEST_X: ", al.reference_name)
+            print("TEST_X: ".reference_name)
         print("TEST_X_reference_ordr:", reference_order)
         print("TEST_x")
         for al in sorted(alignments, key=lambda al: (reference_order.index(al.reference_name), sam.query_interval(al))):
