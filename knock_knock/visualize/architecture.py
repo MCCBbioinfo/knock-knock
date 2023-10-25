@@ -592,6 +592,9 @@ class ReadDiagram():
         reference_order = [ti.target, ti.donor]
 
         reference_order.extend([ref_name for ref_name in ti.reference_sequences if ti not in reference_order])
+        print("TEST_architecture: ", reference_order)
+        print("TEST_architecture: ", ti)
+        
         reference_order.extend(ti.all_supplemental_reference_names)
 
         references_seen = set(al.reference_name for al in alignments)
