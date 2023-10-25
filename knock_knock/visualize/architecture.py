@@ -596,8 +596,10 @@ class ReadDiagram():
         print("TEST_architecture: ", ti)
         
         reference_order.extend(ti.all_supplemental_reference_names)
+        # reference_order.extend(al.reference_name for al in alignments if al.reference_name not in )
 
         references_seen = set(al.reference_name for al in alignments)
+        print("TEST_reference_seen: ", references_seen)
         reference_order = [ref_name for ref_name in reference_order if ref_name in references_seen]
 
         by_reference_name = defaultdict(list)
