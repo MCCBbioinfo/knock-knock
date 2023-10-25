@@ -126,6 +126,7 @@ class TargetInfo():
         self.base_dir = Path(base_dir)
         self.targets_dir = self.base_dir / 'targets'
         self.dir = self.targets_dir / name
+        self.all_supplemental_reference_names = None # added to fix the architecture bug
 
         # If not None, feature_to_replace is a tuple (ref_name, feature_name, sequence)
         # for which the region of ref_name covered by feature_name
@@ -206,6 +207,7 @@ class TargetInfo():
                     target = {self.target}
                     sgRNAs = [{','.join(self.sgRNA_names)}]
                     donor = {self.donor}
+                    all_supplemental_reference_names = {self.all_supplemental_reference_names} # added to fix architecture bug
             '''
         return textwrap.dedent(representation)
 
