@@ -379,6 +379,7 @@ class Experiment:
 
             if isinstance(outcome, tuple):
                 # outcome is a (category, subcategory) pair
+                print("TEST_experiment_outcome: ",  self.outcome_fns(outcome)['bam_by_name'])
                 fn = self.outcome_fns(outcome)['bam_by_name'][read_type]
 
                 if fn.exists():
