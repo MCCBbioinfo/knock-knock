@@ -1457,14 +1457,15 @@ def get_all_experiments(base_dir, conditions=None, as_dictionary=True, progress=
             exp = exp_class(base_dir, batch, name, description=description, progress=progress)
             exps.append(exp)
 
-    filtered = [exp for exp in exps if check_conditions(exp) and exp.batch not in groups_to_exclude]
+    print("TEST_experiment: ", exp)
+    filtered = [exp for exp in exps if check_conditions(exp) and exp.batch_name not in groups_to_exclude]
     if len(filtered) == 0:
         raise ValueError('No experiments met conditions')
 
     if as_dictionary:
         d = {}
         for exp in filtered:
-            d[exp.batch, exp.sample_name] = exp
+            d[exp.batch_name, exp.sample_name] = exp
         
         filtered = d
 

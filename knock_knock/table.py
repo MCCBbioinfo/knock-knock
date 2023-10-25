@@ -368,7 +368,14 @@ def make_table(base_dir,
         sl = pd.IndexSlice[[(exp_group, name_tuple)], :]
         styled.format(bind_link_maker(name_tuple), subset=sl)
     
+    print("TEST_index: ", df.index)
+    print("TEST_df", df)
     for exp_group, name_tuple in df.index:
+        print("TEST_table: ", exps)
+        print("TEST_TABLE: ", name_tuple)
+        tem = tuple(name_tuple.split("/"))
+        print("TEST_TEM: ", tem)
+        # name_tuple = tem
         exp = exps[name_tuple]
         # Note: as of pandas 0.22, col needs to be in brackets here so that
         # apply is ultimately called on a df, not a series, to prevent
