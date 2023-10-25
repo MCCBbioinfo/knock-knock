@@ -677,6 +677,7 @@ class Experiment:
 
     @memoized_property
     def combined_header(self):
+        print("TEST2: ", self.fns_by_read_type['bam_by_name'])
         return hits.sam.get_header(self.fns_by_read_type['bam_by_name'][self.uncommon_read_type])
 
     def categorize_outcomes(self, fn_key='bam_by_name', read_type=None, max_reads=None):
