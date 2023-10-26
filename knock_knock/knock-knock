@@ -46,7 +46,7 @@ def parallel(args):
             arg_tuples = []
 
             for _, exp in exps.items():
-                arg_tuple = (exp.base_dir, exp.batch, exp.sample_name, stage, args.progress, True)
+                arg_tuple = (exp.base_dir, exp.batch_name, exp.sample_name, stage, args.progress, True)
                 arg_tuples.append(arg_tuple)
 
             process_pool.starmap(knock_knock.experiment.process_experiment_stage, arg_tuples)
