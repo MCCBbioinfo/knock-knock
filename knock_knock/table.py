@@ -692,8 +692,8 @@ def make_self_contained_zip(base_dir,
                         fns_to_zip.add(fn)
 
             print("TEST_table_exp: ", exp)
-            # add_fn(exp.experiment_group.fns['partial_incorporation_figure'])
-            # add_fn(exp.experiment_group.fns['deletion_boundaries_figure'])
+            add_fn(exp.experiment_group.fns['partial_incorporation_figure'])
+            add_fn(exp.experiment_group.fns['deletion_boundaries_figure'])
             
             add_fn(exp.fns['outcome_browser'])
             add_fn(exp.fns['lengths_figure'])
