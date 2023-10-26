@@ -284,6 +284,7 @@ def make_table(base_dir,
         if val == 0:
             html = ''
         else:
+            name_tuple = tuple(name_tuple.split("/"))
             exp = exps[name_tuple]
             
             fraction = val / totals[name_tuple]
@@ -373,15 +374,23 @@ def make_table(base_dir,
     for exp_group, name_tuple in df.index:
         print("TEST_table: ", exps)
         print("TEST_TABLE: ", name_tuple)
+        name_tuple_raw = name_tuple
         tem = tuple(name_tuple.split("/"))
         print("TEST_TEM: ", tem)
-        # name_tuple = tem
+        name_tuple = tem
+        print("TEST_KEYS: ", exps.keys())
+        print("same: ", tem in exps.keys())
         exp = exps[name_tuple]
         # Note: as of pandas 0.22, col needs to be in brackets here so that
         # apply is ultimately called on a df, not a series, to prevent
         # TypeError: _bar_left() got an unexpected keyword argument 'axis'
 
-        subset_slice = pd.IndexSlice[[(exp_group, name_tuple)], :]
+        subset_slice = pd.IndexSlice[[(exp_group, name_tuple_raw)], :]
+        print("TEST_name_tuple: ", name_tuple)
+        print("TEST_subset_slice: ", subset_slice)
+        print("TEST_df: ", df)
+        print("TEST_here: ", df.loc[subset_slice])
+        
 
         styled.bar(subset=subset_slice,
                    axis=1,
@@ -391,7 +400,12 @@ def make_table(base_dir,
                   )
 
     def make_outcome_browswer_link(name_tuple):
+        name_tuple = tuple(name_tuple.split("/"))
         sample_name = name_tuple[-1]
+
+        print("TEST_table: ", name_tuple)
+        print("TEST_table: ", exps)
+        print("TEST_table: ", sample_name)
 
         exp = exps[name_tuple]
         outcome_browser_fn = exp.fns['outcome_browser']
@@ -657,6 +671,7 @@ def make_self_contained_zip(base_dir,
     pms.to_csv(pms_fn)
     fns_to_zip.add(pms_fn)
 
+    print("TEST_arrayed: ", arrayed)
     if arrayed:
         exps = knock_knock.arrayed_experiment_group.get_all_experiments(base_dir, conditions=conditions)
     else:
@@ -676,8 +691,9 @@ def make_self_contained_zip(base_dir,
                     else:
                         fns_to_zip.add(fn)
 
-            add_fn(exp.experiment_group.fns['partial_incorporation_figure'])
-            add_fn(exp.experiment_group.fns['deletion_boundaries_figure'])
+            print("TEST_table_exp: ", exp)
+            # add_fn(exp.experiment_group.fns['partial_incorporation_figure'])
+            # add_fn(exp.experiment_group.fns['deletion_boundaries_figure'])
             
             add_fn(exp.fns['outcome_browser'])
             add_fn(exp.fns['lengths_figure'])
