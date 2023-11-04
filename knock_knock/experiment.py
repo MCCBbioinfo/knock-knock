@@ -205,6 +205,7 @@ class Experiment:
     def supplemental_indices(self):
         locations = knock_knock.target_info.locate_supplemental_indices(self.base_dir)
         # print(locations, "TEST")
+        print(self.supplemental_index_names)
         return {name: locations[name] for name in self.supplemental_index_names}
 
     @memoized_property

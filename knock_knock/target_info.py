@@ -51,6 +51,7 @@ class Effector():
 
     def PAM_matches_pattern(self, protospacer_feature, target_sequence):
         PAM_seq = target_sequence[self.PAM_slice(protospacer_feature)].upper()
+        print("TEST3: ", PAM_seq)
         if protospacer_feature.strand == '-':
             PAM_seq = utilities.reverse_complement(PAM_seq)
 

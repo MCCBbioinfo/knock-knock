@@ -86,13 +86,16 @@ def identify_protospacer_in_target(target_sequence, protospacer, effector):
                                                                          'effector': effector.name,
                                                                      }),
                                                                     )
-                
+                print("TEST1: ", target_protospacer_feature)
                 if effector.PAM_matches_pattern(target_protospacer_feature, target_sequence):
                     valid_features.append(target_protospacer_feature)
 
         return valid_features
                 
+    print("TEST2: ", protospacer)
     valid_features = find(protospacer)
+    
+    
 
     if len(valid_features) == 0:
         valid_features = find(protospacer[1:])

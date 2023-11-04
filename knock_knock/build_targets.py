@@ -298,6 +298,7 @@ class TargetInfoBuilder:
         for sgRNA_name, components in sorted(sgRNAs):
             try:
                 protospacer_feature = pegRNAs.identify_protospacer_in_target(amplicon_sequence, components['protospacer'], components['effector'])
+                print("TEST: ", protospacer_feature)
                 protospacer_features_in_amplicon[sgRNA_name] = protospacer_feature
             except ValueError:
                 logging.warning(f'No valid location for {sgRNA_name} {components["effector"]} protospacer: {components["protospacer"]} in target {ref_name}:{left_al.reference_start:,}-{right_al.reference_end:,}')

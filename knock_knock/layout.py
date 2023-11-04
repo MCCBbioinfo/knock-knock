@@ -428,6 +428,7 @@ class Layout(Categorizer):
              'hg19',
              'mm10',
              'e_coli',
+             'danRer11'
             ),
         ),
         ('uncategorized',
