@@ -683,8 +683,8 @@ def make_self_contained_zip(base_dir,
         for exp in exps.values():
             def add_fn(fn):
                 if not fn.exists():
-                    # exps_missing_files[exp.group_name, exp.sample_name].append(fn)
-                    exps_missing_files[exp.sample_name].append(fn)
+                    exps_missing_files[exp.group_name, exp.sample_name].append(fn)
+                    # exps_missing_files[exp.sample_name].append(fn)
                 else:
                     if fn.is_dir():
                         for child_fn in fn.iterdir():
